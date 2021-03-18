@@ -36,7 +36,7 @@ public class InvertedIndexTest {
                 .filter(Files::isRegularFile)
                 .map(Path::toFile)
                 .collect(Collectors.toList());
-
+        assert (filesInFolder.size() >=1);
         for (File file : filesInFolder) {
             this.idx.indexFiles(file);
         }
