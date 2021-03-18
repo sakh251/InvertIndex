@@ -1,11 +1,11 @@
 package invertIndex;
 
-import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -21,15 +21,14 @@ public class InvertedIndexTest {
     private InvertedIndex idx = new InvertedIndex();
 
     String testDocPath = new  String("C:\\Users\\salman\\IdeaProjects\\test\\src\\main\\resources\\");
-    @Rule
-    public TestName testName = new TestName();
+
 
 
     public void invertedIndexTest(){
 
     }
 
-    @Before
+    @BeforeEach
     public void test_index() throws IOException {
 
         List<File> filesInFolder = Files.walk(Paths.get(testDocPath))
