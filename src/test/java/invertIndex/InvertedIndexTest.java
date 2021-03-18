@@ -50,9 +50,9 @@ public class InvertedIndexTest {
 
         List<InvertedIndex.Result> result  = this.idx.search(Arrays.asList(test_query1.split(" ")));
         assert (result.size() >= 1);
-        System.out.println(result.get(0).rate);
         assert (result.get(0).rate == 100);
-        result  = idx.search(Arrays.asList(test_query1.split(" ")));
+        assert (result.get(1).rate == 50);
+        result  = idx.search(Arrays.asList(test_query2.split(" ")));
 
     }
 
