@@ -5,6 +5,7 @@ package invertIndex;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import search.InvertedIndex;
 
 
 import java.io.File;
