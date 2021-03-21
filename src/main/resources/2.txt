@@ -1,0 +1,3 @@
+here's an "edit configurations" item on the Run menu, and on the pull-down to the left of the two green "run" and "debug" arrows on the toolbar.
+
+item item item
