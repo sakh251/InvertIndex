@@ -46,7 +46,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>invertIndex.InvertedIndex</mainClass>
+                            <mainClass>search.search</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
