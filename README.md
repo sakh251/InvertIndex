@@ -1,5 +1,5 @@
 # Simple Inverted Index in Java 
- This command-line app gets a folder and reads all files, and indexes their words. Then gets several words and sends back found path and rank of each file. 
+ This command-line app gets a folder and reads all files, and indexes their words. Then gets several words and sends back found files contain query words. 
  
  ## usage 
 
