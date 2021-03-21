@@ -10,6 +10,6 @@ java -jar test-SNAPSHOT.jar PathToTargetDirectory
 This project is based on Maven.
 
 ## Screenshot
-![Screenshot](invertedindex.PNG)
+![Screenshot](invertedindex1.PNG)
 
 
