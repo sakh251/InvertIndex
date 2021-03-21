@@ -3,8 +3,10 @@ package invertIndex;
 
 
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 
 import java.io.File;
@@ -18,40 +20,38 @@ import java.util.stream.Collectors;
 
 public class InvertedIndexTest {
 
-    private InvertedIndex idx = new InvertedIndex();
+    private static InvertedIndex idx = new InvertedIndex();
 
-    String testDocPath = new  String("C:\\Users\\salman\\IdeaProjects\\test\\src\\main\\resources\\");
+    private static String testDocPath = new  String("C:\\Users\\salman\\IdeaProjects\\test\\src\\main\\resources\\");
 
-
-
-    public void invertedIndexTest(){
-
-    }
-
-    @BeforeEach
-    public void test_index() throws IOException {
-
+    @BeforeAll
+    public static void test_index() throws IOException {
         List<File> filesInFolder = Files.walk(Paths.get(testDocPath))
                 .filter(Files::isRegularFile)
                 .map(Path::toFile)
                 .collect(Collectors.toList());
         assert (filesInFolder.size() >=1);
         for (File file : filesInFolder) {
-            this.idx.indexFiles(file);
+            idx.indexFiles(file);
         }
-
     }
+
     @Test
-    public void test_search(){
+    public void test_query1(){
         String test_query1 = new String("salam item");
-        String test_query2 = new String("configuration item");
+        List<InvertedIndex.Result> result  = idx.search(Arrays.asList(test_query1.split(" ")));
+        assert (result.size() >= 1) : "Result is null";
+        assert (result.get(0).rate == 100): "Invalid rate for query 1 in Doc 1";
+        assert (result.get(1).rate == 50) : "Invalid rate for query 1 in Doc 2";
+    }
 
-
-        List<InvertedIndex.Result> result  = this.idx.search(Arrays.asList(test_query1.split(" ")));
-        assert (result.size() >= 1);
-        assert (result.get(0).rate == 100);
-        assert (result.get(1).rate == 50);
-        result  = idx.search(Arrays.asList(test_query2.split(" ")));
+    @Test
+    public void test_query2(){
+        String test_query2 = new String("configurations item");
+        List<InvertedIndex.Result> result  = idx.search(Arrays.asList(test_query2.split(" ")));
+        assert (result.size() >= 1) : "Result is null";
+        assert (result.get(0).rate == 100): "Invalid rate for query 2 in Doc 2";
+        assert (result.get(1).rate == 50) : "Invalid rate for query 2 in Doc 1";
 
     }
 
