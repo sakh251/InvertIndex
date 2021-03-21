@@ -40,7 +40,7 @@ public class search {
             // Reading data using readLine
             String name = reader.readLine();
 
-            if (name.equals("exit")) {
+            if (name.equals(":quit")) {
                 break;
             }
             List<InvertedIndex.Result> result  = idx.search(Arrays.asList(name.split(" ")));
