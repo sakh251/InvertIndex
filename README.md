@@ -1,4 +1,4 @@
-# Simple Invert Index in Java 
+# Simple Inverted Index in Java 
  
  ## usage 
 
