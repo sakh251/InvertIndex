@@ -3,7 +3,12 @@
  
  ## usage 
 
+git clone https://github.com/sakh251/InvertedIndex.git
+cd InvertedIndex
+mvn package 
+cd target
 java -jar test-SNAPSHOT.jar PathToTargetDirectory
+PathToTargetDirectory:  location of text files to index
 
 ## Build
 
