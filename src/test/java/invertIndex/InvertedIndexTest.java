@@ -20,12 +20,22 @@ public class InvertedIndexTest {
 
     private static InvertedIndex idx = new InvertedIndex();
 
-    private static String testDocPath = new  String("C:\\Users\\salman\\IdeaProjects\\test\\src\\main\\resources\\");
 
     @BeforeAll
     public static void test_index() throws IOException {
-        List<File> filesInFolder = Files.walk(Paths.get(testDocPath))
+
+        String text1 = "here's an \"edit \" item on the Run menu, and on the pull-down to the left of the two green \"run\" and \"debug\" arrows on the toolbar. In that panel, you create a configuration with the \"+\" button in the top left, and then you can choose the Class containing main(), add VM parameters and command-line args, specify the working directory and any environment variables.\n" +
+                "\n" +
+                "There are other options there as well: code coverage, logging, build, JRE, etc. item item salam";
+        String text2 = "here's an \"edit configurations\" item on the Run menu, and on the pull-down to the left of the two green \"run\" and \"debug\" arrows on the toolbar.\n" +
+                "\n" +
+                "item item item";
+        Files.write(Paths.get("1.txt"), text1.getBytes());
+        Files.write(Paths.get("2.txt"), text2.getBytes());
+
+        List<File> filesInFolder = Files.list(Paths.get("."))
                 .filter(Files::isRegularFile)
+                .filter(path -> path.toString().endsWith(".txt"))
                 .map(Path::toFile)
                 .collect(Collectors.toList());
         assert (filesInFolder.size() >=1);
